@@ -1,17 +1,20 @@
 import dedent from 'dedent';
 import fs from 'fs';
 import getTsmc from './companies/tsmc.js';
+import getAsml from './companies/asml.js';
+
+const NEWLINE = `
+`;
 
 (async () => {
-  const tsmc = await getTsmc();
-
   updateReadme({
-    "TSMC": tsmc
+    "ASML": await getAsml(),
+    "TSMC": await getTsmc(),
   });
 })();
 
-function getContent(dateTime) {
-  return dateTime || "No date found";
+function getContent(date) {
+  return date ?? "No date found";
 }
 
 function updateReadme(companies) {
@@ -38,9 +41,9 @@ function updateReadme(companies) {
 
       ${header}
 
-      Company | Next earnings call
+      Company | Next earnings
       --- | ---
-      ${content.join()}
+      ${content.join(NEWLINE)}
     `, 
     function (err) {
       if (err) throw err;

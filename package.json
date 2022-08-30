@@ -10,8 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "date-fns": "^2.29.2",
     "dedent": "^0.7.0",
     "puppeteer": "^17.0.0"
   },
-  "type":"module"
+  "type": "module"
 }
