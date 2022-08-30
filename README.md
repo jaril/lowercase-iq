@@ -11,5 +11,5 @@ npm run update
 
 Company | Next earnings
 --- | ---
-ASML | Wed Oct 19 2022
-TSMC | No date found
+[ASML](https://www.asml.com/en/investors/financial-calendar) | Wed Oct 19 2022
+[TSMC](https://investor.tsmc.com/english/financial-calendar) | No date found

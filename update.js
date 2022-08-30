@@ -13,13 +13,13 @@ const NEWLINE = `
   });
 })();
 
-function getContent(date) {
+function validateDate(date) {
   return date ?? "No date found";
 }
 
 function updateReadme(companies) {
   const content = Object.entries(companies).map(([key, value]) => {
-    return `${key} | ${getContent(value)}`
+    return `[${key}](${value.url}) | ${validateDate(value.date)}`
   });
   const header = `# Upcoming Events`
 

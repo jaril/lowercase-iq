@@ -9,9 +9,10 @@ export default async function getTsmc() {
   // Pretend we're headed so we don't get Access Denied
   await page.setUserAgent(USER_AGENT);
 
-  await page.goto('https://investor.tsmc.com/english/financial-calendar');
+  const url = 'https://investor.tsmc.com/english/financial-calendar';
+  await page.goto(url);
 
-  const dateTime = await page.evaluate(() => {
+  const date = await page.evaluate(() => {
     const texts = [...document.querySelectorAll(".item-text")];
     // TSMC typically labels their earnings as `TSMC QQYY Results - Earnings Conference and Conference Call`
     const earningsText = texts.find(elem => elem.innerHTML.toLowerCase().includes("earnings conference"));
@@ -27,5 +28,5 @@ export default async function getTsmc() {
 
   await browser.close();
 
-  return dateTime;
+  return { date, url };
 };

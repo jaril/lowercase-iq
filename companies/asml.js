@@ -29,9 +29,10 @@ export default async function getAsml() {
   // Pretend we're headed so we don't get Access Denied
   await page.setUserAgent(USER_AGENT);
 
-  await page.goto('https://www.asml.com/en/investors/financial-calendar');
+  const url = 'https://www.asml.com/en/investors/financial-calendar';
+  await page.goto(url);
   const date = await page.evaluate(getDate);
   await browser.close();
 
-  return date;
+  return { date, url };
 };
