@@ -4,7 +4,7 @@ Because Capital IQ is too expensive.
 
 ```
 npm install
-node update.js
+npm run update
 ```
 
 # Upcoming Events
