@@ -1,0 +1,17 @@
+name: Update Dates
+on: 
+  workflow_dispatch:
+
+jobs:
+  update-dates:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        uses: bahmutov/npm-install@v1
+      - name: Update Dates
+        run: npm run update
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update dates

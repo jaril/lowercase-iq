@@ -27,7 +27,7 @@ function updateReadme(companies) {
 
     \`\`\`
     npm install
-    node update.js
+    npm run update
     \`\`\`
   `;
 
