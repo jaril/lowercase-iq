@@ -2,6 +2,7 @@ import dedent from 'dedent';
 import fs from 'fs';
 import getTsmc from './companies/tsmc.js';
 import getAsml from './companies/asml.js';
+import getNvidia from './companies/nvidia.js';
 
 const NEWLINE = `
 `;
@@ -10,6 +11,7 @@ const NEWLINE = `
   updateReadme({
     "ASML": await getAsml(),
     "TSMC": await getTsmc(),
+    "NVIDIA": await getNvidia(),
   });
 })();
 
@@ -19,6 +21,7 @@ function validateDate(date) {
 
 function updateReadme(companies) {
   const content = Object.entries(companies).map(([key, value]) => {
+    console.log(">>", value);
     return `[${key}](${value.url}) | ${validateDate(value.date)}`
   });
   const header = `# Upcoming Events`
