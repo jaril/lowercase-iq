@@ -3,6 +3,7 @@ import fs from 'fs';
 import getTsmc from './companies/tsmc.js';
 import getAsml from './companies/asml.js';
 import getNvidia from './companies/nvidia.js';
+import getAsana from './companies/asana.js';
 
 const NEWLINE = `
 `;
@@ -12,11 +13,16 @@ const NEWLINE = `
     "ASML": await getAsml(),
     "TSMC": await getTsmc(),
     "NVIDIA": await getNvidia(),
+    "Asana": await getAsana(),
   });
 })();
 
 function validateDate(date) {
-  return date ?? "No date found";
+  if (!date) {
+    return "No date found";
+  }
+
+  return new Date(date).toLocaleDateString();
 }
 
 function updateReadme(companies) {
