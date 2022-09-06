@@ -10,7 +10,6 @@ function getDate() {
   }
 
   const earningsRow = earningsText.closest(".item");
-
   return earningsRow.querySelector(".datetime").innerHTML;
 }
 

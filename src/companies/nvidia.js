@@ -10,7 +10,7 @@ function getDate() {
     return isAfterToday && headlineMatch;
   });
 
-  return financialResultsItem.length ? financialResultsItem[0] : null;
+  return financialResultsItem.length ? financialResultsItem[0].querySelector(".module_date-text").innerHTML : null;
 }
 
 export default async function getAsml() {
