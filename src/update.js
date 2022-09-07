@@ -8,13 +8,8 @@ import getAsana from './companies/asana.js';
 const NEWLINE = `
 `;
 
-(async () => {
-  updateReadme({
-    "ASML": await getAsml(),
-    "TSMC": await getTsmc(),
-    "NVIDIA": await getNvidia(),
-    "Asana": await getAsana(),
-  });
+(() => {
+  updateReadme();
 })();
 
 function validateDate(date) {
@@ -25,11 +20,26 @@ function validateDate(date) {
   return new Date(date).toLocaleDateString();
 }
 
-function updateReadme(companies) {
-  const content = Object.entries(companies).map(([key, value]) => {
+async function getCompanies() {
+  return {
+    "ASML": await getAsml(),
+    "TSMC": await getTsmc(),
+    "NVIDIA": await getNvidia(),
+    "Asana": await getAsana(),
+  };
+}
+
+async function updateReadme() {
+  const companies = await getCompanies();
+  const _content = Object.entries(companies);
+  const sortedContent = _content.sort((a, b) => {
+    return new Date(a[1].date).getTime() - new Date(b[1].date).getTime();
+  });
+  const content = sortedContent.map(([key, value]) => {
     console.log(">>", value);
     return `[${key}](${value.url}) | ${validateDate(value.date)}`
   });
+
   const header = `# Upcoming Events`
 
   const readme = dedent`
