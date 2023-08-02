@@ -13,5 +13,5 @@ Company | Next earnings
 --- | ---
 [TSMC](https://investor.tsmc.com/english/financial-calendar) | No date found
 [Asana](https://investors.asana.com/events-and-presentations/) | No date found
-[ASML](https://www.asml.com/en/investors/financial-calendar) | 7/19/2023
 [NVIDIA](https://investor.nvidia.com/events-and-presentations/events-and-presentations/) | 8/23/2023
+[ASML](https://www.asml.com/en/investors/financial-calendar) | 10/18/2023
